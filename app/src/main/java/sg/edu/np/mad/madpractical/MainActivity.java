@@ -1,4 +1,4 @@
-package sg.edu.np.mad.practical3;
+package sg.edu.np.mad.madpractical;
 
 import static android.content.ContentValues.TAG;
 
@@ -15,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import java.net.UnknownServiceException;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setContentView(R.layout.activity_main);
-        User user = new User("Jesiah", "Hello");
+        User user = new User("Jesiah", "Hello",1,true);
         ToggleButton Follow = (ToggleButton)findViewById(R.id.button);
         Button message = findViewById(R.id.button2);
         Follow.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -41,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), text1, Toast.LENGTH_SHORT).show();
                 }
             }
+
         });
         message.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,10 +51,7 @@ public class MainActivity extends AppCompatActivity {
         randomInt();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR);
     }
-    private void randomInt(){
-        TextView text = findViewById(R.id.text1);
-        text.setText("MAD " + getRandomNumber());
-    }
+
     @Override
     protected void onStart(){
         super.onStart();
@@ -63,11 +59,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    private void randomInt(){
+        TextView text = findViewById(R.id.text1);
+        text.setText("MAD " + getRandomNumber());
+    }
     private int getRandomNumber(){
         Random random = new Random();
         int number = random.nextInt(1000000000);
         return number;
+
     }
+
     @Override
     protected void onPause(){
         super.onPause();
@@ -83,5 +85,4 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         Log.v(TAG, "On Stop!!!");
     }
-}
-
+    }

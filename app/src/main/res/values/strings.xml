@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Practical3</string>
+    <string name="app_name">madpractical</string>
     <string name="btn1">Follow</string>
     <string name="btn2">Unfollow</string>
     <string name="btn3">Message</string>
